@@ -31,7 +31,7 @@
         /* Header */
         header {
             background-color: var(--white);
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             border-bottom: 1px solid rgba(139, 115, 85, 0.1);
             position: sticky;
             top: 0;
@@ -47,6 +47,12 @@
             align-items: center;
         }
 
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
         .logo {
             font-size: 1.8rem;
             font-weight: 300;
@@ -60,6 +66,24 @@
             color: var(--gold);
             text-transform: uppercase;
             margin-top: 0.25rem;
+        }
+
+        .social-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .social-link {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: var(--warm-brown);
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-link:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
         }
 
         nav ul {
@@ -106,28 +130,61 @@
         .hero p {
             font-size: 1.1rem;
             color: var(--text-light);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .cta-button {
+        .hero-cta-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .shop-favorites-btn {
             display: inline-block;
             background-color: var(--gold);
             color: var(--white);
-            padding: 0.9rem 2.5rem;
+            padding: 1rem 2.5rem;
             text-decoration: none;
             border-radius: 2px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             letter-spacing: 1px;
-            transition: background-color 0.3s ease;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             border: none;
             cursor: pointer;
         }
 
-        .cta-button:hover {
+        .shop-favorites-btn:hover {
             background-color: var(--warm-brown);
+            transform: translateY(-2px);
+        }
+
+        .shop-favorites-btn:active {
+            transform: translateY(0);
+        }
+
+        .hero-social {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-social a {
+            text-decoration: none;
+            font-size: 1.8rem;
+            color: var(--warm-brown);
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .hero-social a:hover {
+            color: var(--gold);
+            transform: scale(1.1);
         }
 
         /* About Section */
@@ -177,11 +234,11 @@
 
         .link-card {
             background-color: var(--white);
-            padding: 1.5rem;
+            padding: 0;
             border-radius: 2px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .link-card:hover {
@@ -192,14 +249,23 @@
         .link-card a {
             text-decoration: none;
             color: var(--warm-brown);
-            font-weight: 500;
             display: block;
-            margin-bottom: 0.5rem;
+            padding: 1.5rem;
+            font-weight: 500;
+            text-align: center;
+            background-color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .link-card a:hover {
+            background-color: var(--cream);
         }
 
         .link-card p {
             font-size: 0.85rem;
             color: var(--text-light);
+            padding: 0 1.5rem 1.5rem;
+            text-align: center;
         }
 
         /* Shopping Categories */
@@ -237,27 +303,46 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .product-item {
             background-color: var(--cream);
-            padding: 1rem;
             border-radius: 2px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-item a {
+            text-decoration: none;
+            display: block;
+            padding: 1.5rem 1rem;
             text-align: center;
+            color: var(--text-dark);
             transition: background-color 0.3s ease;
         }
 
         .product-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-item:hover a {
             background-color: #EBE6E0;
+        }
+
+        .product-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
         }
 
         .product-name {
             font-size: 0.9rem;
             font-weight: 500;
             color: var(--warm-brown);
-            margin-top: 0.5rem;
         }
 
         /* Shop Buttons */
@@ -265,7 +350,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
-            margin: 3rem 0;
+            margin-bottom: 2rem;
         }
 
         .shop-btn {
@@ -277,11 +362,17 @@
             border-radius: 2px;
             text-align: center;
             font-weight: 500;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
         }
 
         .shop-btn:hover {
             background-color: var(--warm-brown);
+            transform: translateY(-2px);
+        }
+
+        .shop-btn:active {
+            transform: translateY(0);
         }
 
         /* Newsletter Section */
@@ -344,6 +435,34 @@
             font-size: 0.9rem;
         }
 
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .footer-social a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
         footer a {
             color: var(--gold);
             text-decoration: none;
@@ -359,13 +478,43 @@
                 font-size: 2.2rem;
             }
 
+            .logo-section {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
             nav ul {
                 gap: 0.5rem;
                 font-size: 0.85rem;
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .social-header {
+                width: 100%;
+                justify-content: flex-start;
             }
 
             .about {
                 padding: 1.5rem;
+            }
+
+            .hero-cta-section {
+                gap: 1rem;
+            }
+
+            .hero-social {
+                gap: 1rem;
+            }
+
+            .hero-social a {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -374,9 +523,17 @@
     <!-- Header/Navigation -->
     <header>
         <nav>
-            <div>
-                <div class="logo">BeautyBible</div>
-                <div class="tagline">Curated for You</div>
+            <div class="logo-section">
+                <div>
+                    <div class="logo">BeautyBible</div>
+                    <div class="tagline">Curated for You</div>
+                </div>
+                <div class="social-header">
+                    <a href="https://www.instagram.com/littlebit_0910" target="_blank" class="social-link" title="Instagram">📸</a>
+                    <a href="https://www.tiktok.com/@littlebit_0910" target="_blank" class="social-link" title="TikTok">🎬</a>
+                    <a href="https://www.pinterest.com/littlebit_0910" target="_blank" class="social-link" title="Pinterest">📌</a>
+                    <a href="https://www.amazon.com/shop/littlebit_0910" target="_blank" class="social-link" title="Amazon">🛍️</a>
+                </div>
             </div>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -392,7 +549,17 @@
         <h1>BeautyBible</h1>
         <div class="hero-subtitle">34 | 4'10" & shorter in person | Oversharing life with no kids</div>
         <p>Lifestyle • GRWMs • Everyday Adventures • Authentic Beauty & Product Recommendations</p>
-        <p>Shop all my favorites ⬇️</p>
+        
+        <div class="hero-cta-section">
+            <a href="#shopping" class="shop-favorites-btn">Shop All My Favorites →</a>
+            
+            <div class="hero-social">
+                <a href="https://www.instagram.com/littlebit_0910" target="_blank" title="Follow on Instagram">📸</a>
+                <a href="https://www.tiktok.com/@littlebit_0910" target="_blank" title="Follow on TikTok">🎬</a>
+                <a href="https://www.pinterest.com/littlebit_0910" target="_blank" title="Follow on Pinterest">📌</a>
+                <a href="https://www.amazon.com/shop/littlebit_0910" target="_blank" title="Amazon Shop">🛍️</a>
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -409,7 +576,7 @@
         <div class="links-grid">
             <div class="link-card">
                 <a href="https://sarahwhistlerugcportfolio.my.canva.site/" target="_blank">📸 UGC Portfolio</a>
-                <p>See my professional work</p>
+                <p>See my professional work & collaborations</p>
             </div>
             <div class="link-card">
                 <a href="https://iconskincare.sjv.io/ZVE9VW" target="_blank">✨ ICON Skincare</a>
@@ -417,7 +584,7 @@
             </div>
             <div class="link-card">
                 <a href="https://stan.store/affiliates/e61c8782-4d81-4768-b2e0-a611d4a4d8e8" target="_blank">💰 Amazon Influencer Academy</a>
-                <p>Monetize on Amazon</p>
+                <p>Learn to monetize on Amazon</p>
             </div>
             <div class="link-card">
                 <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN&tag=sarahwhistler-20" target="_blank">🛍️ Shop My Amazon</a>
@@ -428,7 +595,7 @@
                 <p>Fresh dog food made better</p>
             </div>
             <div class="link-card">
-                <a href="https://shopmy.us/sarahwhistle" target="_blank">🏪 Shop My (All Platforms)</a>
+                <a href="https://shopmy.us/sarahwhistle" target="_blank">🏪 Shop My</a>
                 <p>Everything in one place</p>
             </div>
             <div class="link-card">
@@ -449,27 +616,31 @@
                 <p style="margin-bottom: 1.5rem; color: var(--text-light);">Premium body care & self-care products</p>
                 <div class="products-grid">
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🧴</div>
-                        <div class="product-name">Sol de Janeiro Bum Bum Scrub</div>
+                        <a href="https://www.amazon.com/s?k=Sol+de+Janeiro+Bum+Bum+Scrub&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">🧴</div>
+                            <div class="product-name">Sol de Janeiro Bum Bum Scrub</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">💆</div>
-                        <div class="product-name">Sol de Janeiro Firmeza Oil</div>
+                        <a href="https://www.amazon.com/s?k=Sol+de+Janeiro+Bum+Bum+Oil&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">💆</div>
+                            <div class="product-name">Sol de Janeiro Firmeza Oil</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🧴</div>
-                        <div class="product-name">Sol de Janeiro Bum Bum Cream</div>
+                        <a href="https://www.amazon.com/s?k=Sol+de+Janeiro+Bum+Bum+Cream&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">🧴</div>
+                            <div class="product-name">Sol de Janeiro Cream</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">💨</div>
-                        <div class="product-name">Sol de Janeiro Perfume Mist</div>
-                    </div>
-                    <div class="product-item">
-                        <div style="font-size: 1.8rem;">✨</div>
-                        <div class="product-name">& 14 More Products</div>
+                        <a href="https://www.amazon.com/s?k=Sol+de+Janeiro+Perfume+Mist&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">💨</div>
+                            <div class="product-name">Sol de Janeiro Perfume</div>
+                        </a>
                     </div>
                 </div>
-                <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN" class="shop-btn">Shop All Body Favorites</a>
+                <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN&tag=sarahwhistler-20" class="shop-btn">Shop All Body Favorites →</a>
             </div>
 
             <!-- Home Decor -->
@@ -478,27 +649,31 @@
                 <p style="margin-bottom: 1.5rem; color: var(--text-light);">Minimalist, thoughtful home essentials</p>
                 <div class="products-grid">
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🚿</div>
-                        <div class="product-name">Milk Glass Bathroom Tumbler</div>
+                        <a href="https://walmrt.us/4exVjIJ" target="_blank">
+                            <div class="product-icon">🚿</div>
+                            <div class="product-name">Milk Glass Tumbler</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">💍</div>
-                        <div class="product-name">Milk Glass Trinket Dish</div>
+                        <a href="https://walmrt.us/4exVjIJ" target="_blank">
+                            <div class="product-icon">💍</div>
+                            <div class="product-name">Trinket Dish</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🛢️</div>
-                        <div class="product-name">Bath Canister w/ Lid</div>
+                        <a href="https://walmrt.us/4exVjIJ" target="_blank">
+                            <div class="product-icon">🛢️</div>
+                            <div class="product-name">Bath Canister</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🧺</div>
-                        <div class="product-name">Chunky Stripe Bath Rug</div>
-                    </div>
-                    <div class="product-item">
-                        <div style="font-size: 1.8rem;">🚿</div>
-                        <div class="product-name">Striped Shower Curtain</div>
+                        <a href="https://walmrt.us/4exVjIJ" target="_blank">
+                            <div class="product-icon">🧺</div>
+                            <div class="product-name">Bath Rug</div>
+                        </a>
                     </div>
                 </div>
-                <a href="https://walmrt.us/4exVjIJ" class="shop-btn">Shop All Home Decor</a>
+                <a href="https://walmrt.us/4exVjIJ" class="shop-btn">Shop All Home Decor →</a>
             </div>
 
             <!-- Makeup -->
@@ -507,27 +682,31 @@
                 <p style="margin-bottom: 1.5rem; color: var(--text-light);">High-performance foundation, color & tools</p>
                 <div class="products-grid">
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">✨</div>
-                        <div class="product-name">IT Cosmetics Mascara</div>
+                        <a href="https://www.amazon.com/s?k=IT+Cosmetics+Super+Hero+Mascara&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">✨</div>
+                            <div class="product-name">IT Cosmetics Mascara</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">💄</div>
-                        <div class="product-name">Estée Lauder Foundation</div>
+                        <a href="https://www.amazon.com/s?k=Estee+Lauder+Double+Wear+Foundation&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">💄</div>
+                            <div class="product-name">Estée Lauder Foundation</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🎨</div>
-                        <div class="product-name">Fenty Pro Filt'r Foundation</div>
+                        <a href="https://www.amazon.com/s?k=Fenty+Beauty+Pro+Filt+r+Foundation&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">🎨</div>
+                            <div class="product-name">Fenty Pro Filt'r</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">💋</div>
-                        <div class="product-name">Fenty Gloss Bomb Cream</div>
-                    </div>
-                    <div class="product-item">
-                        <div style="font-size: 1.8rem;">🌸</div>
-                        <div class="product-name">Fenty Cheeks Out Blush</div>
+                        <a href="https://www.amazon.com/s?k=Fenty+Beauty+Gloss+Bomb&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">💋</div>
+                            <div class="product-name">Fenty Gloss Bomb</div>
+                        </a>
                     </div>
                 </div>
-                <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN" class="shop-btn">Shop All 42 Makeup Favorites</a>
+                <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN&tag=sarahwhistler-20" class="shop-btn">Shop All 42 Makeup Products →</a>
             </div>
 
             <!-- Hair Care -->
@@ -536,27 +715,31 @@
                 <p style="margin-bottom: 1.5rem; color: var(--text-light);">Salon-quality tools & treatments</p>
                 <div class="products-grid">
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">💆</div>
-                        <div class="product-name">Gisou Honey Hair Mask</div>
+                        <a href="https://www.amazon.com/s?k=Gisou+Honey+Hair+Mask&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">💆</div>
+                            <div class="product-name">Gisou Hair Mask</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🧴</div>
-                        <div class="product-name">Hair Repair Oil</div>
+                        <a href="https://www.amazon.com/s?k=Dyson+Supersonic+Hair+Dryer&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">💨</div>
+                            <div class="product-name">Dyson Hair Dryer</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🧴</div>
-                        <div class="product-name">Bread Hair Oil</div>
+                        <a href="https://www.amazon.com/s?k=Dyson+Airwrap&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">🌀</div>
+                            <div class="product-name">Dyson Airwrap</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">💨</div>
-                        <div class="product-name">Dyson Hair Dryer</div>
-                    </div>
-                    <div class="product-item">
-                        <div style="font-size: 1.8rem;">🌀</div>
-                        <div class="product-name">Dyson Airwrap Styler</div>
+                        <a href="https://www.amazon.com/s?k=Bread+Beauty+Hair+Oil&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">🧴</div>
+                            <div class="product-name">Bread Hair Oil</div>
+                        </a>
                     </div>
                 </div>
-                <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN" class="shop-btn">Shop All 30 Hair Products</a>
+                <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN&tag=sarahwhistler-20" class="shop-btn">Shop All 30 Hair Products →</a>
             </div>
 
             <!-- Skincare -->
@@ -565,27 +748,31 @@
                 <p style="margin-bottom: 1.5rem; color: var(--text-light);">Clinical & professional skincare</p>
                 <div class="products-grid">
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🧴</div>
-                        <div class="product-name">LOOPS Fresh Peel Mask</div>
+                        <a href="https://iconskincare.sjv.io/ZVE9VW" target="_blank">
+                            <div class="product-icon">🧴</div>
+                            <div class="product-name">ICON Skincare</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">✨</div>
-                        <div class="product-name">Sunrise Brightening Mask</div>
+                        <a href="https://www.amazon.com/s?k=LOOPS+Fresh+Peel+Mask&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">🧴</div>
+                            <div class="product-name">LOOPS Fresh Peel</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🎯</div>
-                        <div class="product-name">Dark Spot Hydrogel Mask</div>
+                        <a href="https://www.amazon.com/s?k=Neutrogena+Hydro+Boost&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">💧</div>
+                            <div class="product-name">Neutrogena Hydro Boost</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">💧</div>
-                        <div class="product-name">Neutrogena Hydro Boost</div>
-                    </div>
-                    <div class="product-item">
-                        <div style="font-size: 1.8rem;">🧴</div>
-                        <div class="product-name">ICON Skincare System</div>
+                        <a href="https://www.amazon.com/s?k=Hydrogel+Face+Mask&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">✨</div>
+                            <div class="product-name">Hydrogel Masks</div>
+                        </a>
                     </div>
                 </div>
-                <a href="https://iconskincare.sjv.io/ZVE9VW" class="shop-btn">Shop All 24 Skincare Favorites</a>
+                <a href="https://iconskincare.sjv.io/ZVE9VW" class="shop-btn">Shop All 24 Skincare Products →</a>
             </div>
 
             <!-- Doggie -->
@@ -594,27 +781,31 @@
                 <p style="margin-bottom: 1.5rem; color: var(--text-light);">Premium pet care products</p>
                 <div class="products-grid">
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🐕</div>
-                        <div class="product-name">DASH Fresh Dog Food</div>
+                        <a href="https://dashdogfood.com/SARAH" target="_blank">
+                            <div class="product-icon">🐕</div>
+                            <div class="product-name">DASH Fresh Dog Food</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🥘</div>
-                        <div class="product-name">Vittles Vault Storage</div>
+                        <a href="https://www.amazon.com/s?k=Elevated+Dog+Bowls&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">🍽️</div>
+                            <div class="product-name">Elevated Bowls</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🍽️</div>
-                        <div class="product-name">Elevated Dog Bowls</div>
+                        <a href="https://www.amazon.com/s?k=Dog+Paw+Cleaner&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">🛁</div>
+                            <div class="product-name">Paw Cleaner</div>
+                        </a>
                     </div>
                     <div class="product-item">
-                        <div style="font-size: 1.8rem;">🛁</div>
-                        <div class="product-name">Paw Cleaner Set</div>
-                    </div>
-                    <div class="product-item">
-                        <div style="font-size: 1.8rem;">🧼</div>
-                        <div class="product-name">Burt's Bees Dog Shampoo</div>
+                        <a href="https://www.amazon.com/s?k=Burts+Bees+Dog+Shampoo&tag=sarahwhistler-20" target="_blank">
+                            <div class="product-icon">🧼</div>
+                            <div class="product-name">Burt's Bees Shampoo</div>
+                        </a>
                     </div>
                 </div>
-                <a href="https://dashdogfood.com/SARAH" class="shop-btn">Shop All Doggie Products</a>
+                <a href="https://dashdogfood.com/SARAH" class="shop-btn">Shop All Doggie Products →</a>
             </div>
 
         </div>
@@ -634,7 +825,23 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 BeautyBible. Authenticity over everything. | <a href="https://www.instagram.com/littlebit_0910" target="_blank">Instagram</a> • <a href="https://www.tiktok.com/@littlebit_0910" target="_blank">TikTok</a> • <a href="https://www.pinterest.com/littlebit_0910" target="_blank">Pinterest</a> • <a href="https://www.amazon.com/shop/littlebit_0910" target="_blank">Amazon</a></p>
+        <div class="footer-content">
+            <p>&copy; 2025 BeautyBible. Authenticity over everything.</p>
+            
+            <div class="footer-social">
+                <a href="https://www.instagram.com/littlebit_0910" target="_blank" title="Instagram">📸</a>
+                <a href="https://www.tiktok.com/@littlebit_0910" target="_blank" title="TikTok">🎬</a>
+                <a href="https://www.pinterest.com/littlebit_0910" target="_blank" title="Pinterest">📌</a>
+                <a href="https://www.amazon.com/shop/littlebit_0910" target="_blank" title="Amazon">🛍️</a>
+            </div>
+
+            <p>
+                <a href="https://www.instagram.com/littlebit_0910" target="_blank">Instagram</a> •
+                <a href="https://www.tiktok.com/@littlebit_0910" target="_blank">TikTok</a> •
+                <a href="https://www.pinterest.com/littlebit_0910" target="_blank">Pinterest</a> •
+                <a href="https://www.amazon.com/shop/littlebit_0910" target="_blank">Amazon</a>
+            </p>
+        </div>
     </footer>
 </body>
 </html>
