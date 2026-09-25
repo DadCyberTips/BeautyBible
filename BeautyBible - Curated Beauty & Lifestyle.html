@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautyBible - Your Curated Beauty & Lifestyle Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F5F3F0;
+            --white: #FFFFFF;
+            --taupe: #B8A89A;
+            --warm-brown: #8B7355;
+            --gold: #D4A574;
+            --text-dark: #2C2C2C;
+            --text-light: #6B6B6B;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--warm-brown);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--white) 0%, var(--cream) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            color: var(--warm-brown);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--white);
+            padding: 0.9rem 2.5rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--warm-brown);
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 2px;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: var(--warm-brown);
+        }
+
+        .about p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Categories Grid */
+        .categories {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .categories h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--warm-brown);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: var(--warm-brown);
+        }
+
+        .category-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Featured Section */
+        .featured {
+            background-color: var(--white);
+            margin: 4rem 0;
+            padding: 3rem 2rem;
+        }
+
+        .featured-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .featured h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            color: var(--warm-brown);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: var(--cream);
+            padding: 1.5rem;
+            border-radius: 2px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card:hover {
+            background-color: #EBE6E0;
+        }
+
+        .product-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--warm-brown);
+            margin-top: 1rem;
+        }
+
+        .product-brand {
+            font-size: 0.85rem;
+            color: var(--taupe);
+            margin-top: 0.3rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(135deg, var(--warm-brown) 0%, #A0826D 100%);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem 0 0 0;
+        }
+
+        .newsletter h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .newsletter-form {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 2px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #C4955F;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .about {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav>
+            <div>
+                <div class="logo">BeautyBible</div>
+                <div class="tagline">Curated for You</div>
+            </div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#categories">Guides</a></li>
+                <li><a href="#featured">Shop</a></li>
+                <li><a href="#newsletter">Subscribe</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>BeautyBible</h1>
+        <p>Your personal guide to authentic beauty, skincare, and lifestyle. Curated recommendations from someone who actually uses everything.</p>
+        <button class="cta-button">Explore the Guide</button>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>Welcome to BeautyBible</h2>
+        <p>This isn't just another beauty blog. BeautyBible is built on real recommendations from real experience. No gatekeeping, no sponsored fluff—just what actually works.</p>
+        <p>Whether you're looking for that perfect foundation, skincare that delivers, home essentials that spark joy, or lifestyle finds that make everyday better, you'll find honest takes here. Think of this as recommendations from a friend who actually cares about quality and authenticity.</p>
+        <p>Because let's be real: life's too short for mediocre products.</p>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <h2>Beauty & Lifestyle Guides</h2>
+        <div class="grid">
+            <div class="category-card">
+                <div class="category-icon">✨</div>
+                <h3>Skincare Essentials</h3>
+                <p>Clinical skincare that actually works. From daily routines to targeted treatments—find what your skin deserves.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">💄</div>
+                <h3>Makeup & Beauty</h3>
+                <p>High-performance products that perform. Foundation, color, tools—curated for quality and lasting wear.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">💇</div>
+                <h3>Hair Care</h3>
+                <p>Salon-quality tools and treatments. Because healthy hair makes everything better.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🏠</div>
+                <h3>Home & Lifestyle</h3>
+                <p>Everyday essentials that bring calm and clarity to your space. Minimalist, thoughtful, intentional.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🐾</div>
+                <h3>Wellness & Self-Care</h3>
+                <p>Premium body products and self-care rituals that feel like a treat, not a chore.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🛍️</div>
+                <h3>Curated Shop</h3>
+                <p>Direct access to everything featured. All in one place for easy shopping.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="featured">
+        <div class="featured-container">
+            <h2>Currently Loving</h2>
+            <div class="featured-grid">
+                <div class="product-card">
+                    <div style="font-size: 2rem;">🧴</div>
+                    <div class="product-name">ICON Skincare</div>
+                    <div class="product-brand">Clinical Skincare</div>
+                </div>
+                <div class="product-card">
+                    <div style="font-size: 2rem;">💅</div>
+                    <div class="product-name">Fenty Beauty</div>
+                    <div class="product-brand">Foundation & Color</div>
+                </div>
+                <div class="product-card">
+                    <div style="font-size: 2rem;">💆</div>
+                    <div class="product-name">Sol de Janeiro</div>
+                    <div class="product-brand">Body Care Luxury</div>
+                </div>
+                <div class="product-card">
+                    <div style="font-size: 2rem;">💨</div>
+                    <div class="product-name">Dyson Tools</div>
+                    <div class="product-brand">Professional Hair</div>
+                </div>
+                <div class="product-card">
+                    <div style="font-size: 2rem;">🏡</div>
+                    <div class="product-name">Hearth & Hand</div>
+                    <div class="product-brand">Home Essentials</div>
+                </div>
+                <div class="product-card">
+                    <div style="font-size: 2rem;">🐕</div>
+                    <div class="product-name">DASH Dog Food</div>
+                    <div class="product-brand">Fresh & Premium</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter">
+        <div class="featured-container">
+            <h2>Stay in the Loop</h2>
+            <p>Get weekly beauty tips, product recommendations, and lifestyle finds delivered straight to your inbox.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing! Check your email.');">
+                <input type="email" placeholder="Your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 BeautyBible. Authenticity over everything. | <a href="#">Privacy</a> • <a href="#">Contact</a> • <a href="#">Shop</a></p>
+    </footer>
+</body>
+</html>
