@@ -66,6 +66,7 @@
             list-style: none;
             display: flex;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -94,6 +95,12 @@
             letter-spacing: 3px;
             margin-bottom: 1rem;
             color: var(--warm-brown);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--taupe);
+            margin-bottom: 1.5rem;
         }
 
         .hero p {
@@ -127,9 +134,8 @@
         .about {
             max-width: 1200px;
             margin: 4rem auto;
-            padding: 0 2rem;
-            background-color: var(--white);
             padding: 3rem;
+            background-color: var(--white);
             border-radius: 2px;
         }
 
@@ -147,14 +153,14 @@
             margin-bottom: 1rem;
         }
 
-        /* Categories Grid */
-        .categories {
+        /* Quick Links Section */
+        .quick-links {
             max-width: 1200px;
             margin: 4rem auto;
             padding: 0 2rem;
         }
 
-        .categories h2 {
+        .quick-links h2 {
             font-size: 2rem;
             font-weight: 300;
             letter-spacing: 2px;
@@ -163,57 +169,52 @@
             color: var(--warm-brown);
         }
 
-        .grid {
+        .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
         }
 
-        .category-card {
+        .link-card {
             background-color: var(--white);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 2px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .category-card:hover {
+        .link-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .category-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .category-card h3 {
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 0.8rem;
+        .link-card a {
+            text-decoration: none;
             color: var(--warm-brown);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        .category-card p {
+        .link-card p {
+            font-size: 0.85rem;
             color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
         }
 
-        /* Featured Section */
-        .featured {
+        /* Shopping Categories */
+        .shopping-section {
             background-color: var(--white);
-            margin: 4rem 0;
             padding: 3rem 2rem;
+            margin: 4rem 0;
         }
 
-        .featured-container {
+        .shopping-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .featured h2 {
+        .shopping-section h2 {
             font-size: 2rem;
             font-weight: 300;
             letter-spacing: 2px;
@@ -221,35 +222,66 @@
             color: var(--warm-brown);
         }
 
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+        .category-section {
+            margin-bottom: 3rem;
         }
 
-        .product-card {
+        .category-section h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--warm-brown);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .product-item {
             background-color: var(--cream);
-            padding: 1.5rem;
+            padding: 1rem;
             border-radius: 2px;
             text-align: center;
             transition: background-color 0.3s ease;
         }
 
-        .product-card:hover {
+        .product-item:hover {
             background-color: #EBE6E0;
         }
 
         .product-name {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 500;
             color: var(--warm-brown);
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
 
-        .product-brand {
-            font-size: 0.85rem;
-            color: var(--taupe);
-            margin-top: 0.3rem;
+        /* Shop Buttons */
+        .shop-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .shop-btn {
+            display: block;
+            background-color: var(--gold);
+            color: var(--white);
+            padding: 1rem;
+            text-decoration: none;
+            border-radius: 2px;
+            text-align: center;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .shop-btn:hover {
+            background-color: var(--warm-brown);
         }
 
         /* Newsletter Section */
@@ -328,12 +360,12 @@
             }
 
             nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
+                gap: 0.5rem;
+                font-size: 0.85rem;
             }
 
             .about {
-                padding: 2rem;
+                padding: 1.5rem;
             }
         }
     </style>
@@ -348,8 +380,8 @@
             </div>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#categories">Guides</a></li>
-                <li><a href="#featured">Shop</a></li>
+                <li><a href="#links">Links</a></li>
+                <li><a href="#shopping">Shop</a></li>
                 <li><a href="#newsletter">Subscribe</a></li>
             </ul>
         </nav>
@@ -358,8 +390,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>BeautyBible</h1>
-        <p>Your personal guide to authentic beauty, skincare, and lifestyle. Curated recommendations from someone who actually uses everything.</p>
-        <button class="cta-button">Explore the Guide</button>
+        <div class="hero-subtitle">34 | 4'10" & shorter in person | Oversharing life with no kids</div>
+        <p>Lifestyle • GRWMs • Everyday Adventures • Authentic Beauty & Product Recommendations</p>
+        <p>Shop all my favorites ⬇️</p>
     </section>
 
     <!-- About Section -->
@@ -367,88 +400,229 @@
         <h2>Welcome to BeautyBible</h2>
         <p>This isn't just another beauty blog. BeautyBible is built on real recommendations from real experience. No gatekeeping, no sponsored fluff—just what actually works.</p>
         <p>Whether you're looking for that perfect foundation, skincare that delivers, home essentials that spark joy, or lifestyle finds that make everyday better, you'll find honest takes here. Think of this as recommendations from a friend who actually cares about quality and authenticity.</p>
-        <p>Because let's be real: life's too short for mediocre products.</p>
+        <p>Because let's be real: life's too short for mediocre products. All my favorite picks are linked below—shop them, love them, become obsessed. Just like I did.</p>
     </section>
 
-    <!-- Categories -->
-    <section class="categories" id="categories">
-        <h2>Beauty & Lifestyle Guides</h2>
-        <div class="grid">
-            <div class="category-card">
-                <div class="category-icon">✨</div>
-                <h3>Skincare Essentials</h3>
-                <p>Clinical skincare that actually works. From daily routines to targeted treatments—find what your skin deserves.</p>
+    <!-- Quick Links Section -->
+    <section class="quick-links" id="links">
+        <h2>Essential Links</h2>
+        <div class="links-grid">
+            <div class="link-card">
+                <a href="https://sarahwhistlerugcportfolio.my.canva.site/" target="_blank">📸 UGC Portfolio</a>
+                <p>See my professional work</p>
             </div>
-            <div class="category-card">
-                <div class="category-icon">💄</div>
-                <h3>Makeup & Beauty</h3>
-                <p>High-performance products that perform. Foundation, color, tools—curated for quality and lasting wear.</p>
+            <div class="link-card">
+                <a href="https://iconskincare.sjv.io/ZVE9VW" target="_blank">✨ ICON Skincare</a>
+                <p>25 years of clinical expertise</p>
             </div>
-            <div class="category-card">
-                <div class="category-icon">💇</div>
-                <h3>Hair Care</h3>
-                <p>Salon-quality tools and treatments. Because healthy hair makes everything better.</p>
+            <div class="link-card">
+                <a href="https://stan.store/affiliates/e61c8782-4d81-4768-b2e0-a611d4a4d8e8" target="_blank">💰 Amazon Influencer Academy</a>
+                <p>Monetize on Amazon</p>
             </div>
-            <div class="category-card">
-                <div class="category-icon">🏠</div>
-                <h3>Home & Lifestyle</h3>
-                <p>Everyday essentials that bring calm and clarity to your space. Minimalist, thoughtful, intentional.</p>
+            <div class="link-card">
+                <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN&tag=sarahwhistler-20" target="_blank">🛍️ Shop My Amazon</a>
+                <p>All my favorite finds</p>
             </div>
-            <div class="category-card">
-                <div class="category-icon">🐾</div>
-                <h3>Wellness & Self-Care</h3>
-                <p>Premium body products and self-care rituals that feel like a treat, not a chore.</p>
+            <div class="link-card">
+                <a href="https://dashdogfood.com/SARAH" target="_blank">🐕 DASH Dog Food</a>
+                <p>Fresh dog food made better</p>
             </div>
-            <div class="category-card">
-                <div class="category-icon">🛍️</div>
-                <h3>Curated Shop</h3>
-                <p>Direct access to everything featured. All in one place for easy shopping.</p>
+            <div class="link-card">
+                <a href="https://shopmy.us/sarahwhistle" target="_blank">🏪 Shop My (All Platforms)</a>
+                <p>Everything in one place</p>
+            </div>
+            <div class="link-card">
+                <a href="https://walmrt.us/4exVjIJ" target="_blank">🏬 Shop My Walmart</a>
+                <p>Budget-friendly favorites</p>
             </div>
         </div>
     </section>
 
-    <!-- Featured Products -->
-    <section class="featured" id="featured">
-        <div class="featured-container">
-            <h2>Currently Loving</h2>
-            <div class="featured-grid">
-                <div class="product-card">
-                    <div style="font-size: 2rem;">🧴</div>
-                    <div class="product-name">ICON Skincare</div>
-                    <div class="product-brand">Clinical Skincare</div>
+    <!-- Shopping Section -->
+    <section class="shopping-section" id="shopping">
+        <div class="shopping-container">
+            <h2>Shop by Category</h2>
+
+            <!-- Body Favorites -->
+            <div class="category-section">
+                <h3>💫 Body Favorites</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Premium body care & self-care products</p>
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🧴</div>
+                        <div class="product-name">Sol de Janeiro Bum Bum Scrub</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">💆</div>
+                        <div class="product-name">Sol de Janeiro Firmeza Oil</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🧴</div>
+                        <div class="product-name">Sol de Janeiro Bum Bum Cream</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">💨</div>
+                        <div class="product-name">Sol de Janeiro Perfume Mist</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">✨</div>
+                        <div class="product-name">& 14 More Products</div>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <div style="font-size: 2rem;">💅</div>
-                    <div class="product-name">Fenty Beauty</div>
-                    <div class="product-brand">Foundation & Color</div>
-                </div>
-                <div class="product-card">
-                    <div style="font-size: 2rem;">💆</div>
-                    <div class="product-name">Sol de Janeiro</div>
-                    <div class="product-brand">Body Care Luxury</div>
-                </div>
-                <div class="product-card">
-                    <div style="font-size: 2rem;">💨</div>
-                    <div class="product-name">Dyson Tools</div>
-                    <div class="product-brand">Professional Hair</div>
-                </div>
-                <div class="product-card">
-                    <div style="font-size: 2rem;">🏡</div>
-                    <div class="product-name">Hearth & Hand</div>
-                    <div class="product-brand">Home Essentials</div>
-                </div>
-                <div class="product-card">
-                    <div style="font-size: 2rem;">🐕</div>
-                    <div class="product-name">DASH Dog Food</div>
-                    <div class="product-brand">Fresh & Premium</div>
-                </div>
+                <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN" class="shop-btn">Shop All Body Favorites</a>
             </div>
+
+            <!-- Home Decor -->
+            <div class="category-section">
+                <h3>🏠 Home Decor</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Minimalist, thoughtful home essentials</p>
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🚿</div>
+                        <div class="product-name">Milk Glass Bathroom Tumbler</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">💍</div>
+                        <div class="product-name">Milk Glass Trinket Dish</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🛢️</div>
+                        <div class="product-name">Bath Canister w/ Lid</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🧺</div>
+                        <div class="product-name">Chunky Stripe Bath Rug</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🚿</div>
+                        <div class="product-name">Striped Shower Curtain</div>
+                    </div>
+                </div>
+                <a href="https://walmrt.us/4exVjIJ" class="shop-btn">Shop All Home Decor</a>
+            </div>
+
+            <!-- Makeup -->
+            <div class="category-section">
+                <h3>💄 Makeup Loves</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">High-performance foundation, color & tools</p>
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">✨</div>
+                        <div class="product-name">IT Cosmetics Mascara</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">💄</div>
+                        <div class="product-name">Estée Lauder Foundation</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🎨</div>
+                        <div class="product-name">Fenty Pro Filt'r Foundation</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">💋</div>
+                        <div class="product-name">Fenty Gloss Bomb Cream</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🌸</div>
+                        <div class="product-name">Fenty Cheeks Out Blush</div>
+                    </div>
+                </div>
+                <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN" class="shop-btn">Shop All 42 Makeup Favorites</a>
+            </div>
+
+            <!-- Hair Care -->
+            <div class="category-section">
+                <h3>💇 Hair Necessities</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Salon-quality tools & treatments</p>
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">💆</div>
+                        <div class="product-name">Gisou Honey Hair Mask</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🧴</div>
+                        <div class="product-name">Hair Repair Oil</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🧴</div>
+                        <div class="product-name">Bread Hair Oil</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">💨</div>
+                        <div class="product-name">Dyson Hair Dryer</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🌀</div>
+                        <div class="product-name">Dyson Airwrap Styler</div>
+                    </div>
+                </div>
+                <a href="https://www.amazon.com/shop/littlebit_0910?ref_=cm_sw_r_cp_ud_aipsfshop_F511QDG21JB5EKE13GGN" class="shop-btn">Shop All 30 Hair Products</a>
+            </div>
+
+            <!-- Skincare -->
+            <div class="category-section">
+                <h3>✨ Skincare Favorites</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Clinical & professional skincare</p>
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🧴</div>
+                        <div class="product-name">LOOPS Fresh Peel Mask</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">✨</div>
+                        <div class="product-name">Sunrise Brightening Mask</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🎯</div>
+                        <div class="product-name">Dark Spot Hydrogel Mask</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">💧</div>
+                        <div class="product-name">Neutrogena Hydro Boost</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🧴</div>
+                        <div class="product-name">ICON Skincare System</div>
+                    </div>
+                </div>
+                <a href="https://iconskincare.sjv.io/ZVE9VW" class="shop-btn">Shop All 24 Skincare Favorites</a>
+            </div>
+
+            <!-- Doggie -->
+            <div class="category-section">
+                <h3>🐾 Doggie Needs & Wants</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Premium pet care products</p>
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🐕</div>
+                        <div class="product-name">DASH Fresh Dog Food</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🥘</div>
+                        <div class="product-name">Vittles Vault Storage</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🍽️</div>
+                        <div class="product-name">Elevated Dog Bowls</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🛁</div>
+                        <div class="product-name">Paw Cleaner Set</div>
+                    </div>
+                    <div class="product-item">
+                        <div style="font-size: 1.8rem;">🧼</div>
+                        <div class="product-name">Burt's Bees Dog Shampoo</div>
+                    </div>
+                </div>
+                <a href="https://dashdogfood.com/SARAH" class="shop-btn">Shop All Doggie Products</a>
+            </div>
+
         </div>
     </section>
 
     <!-- Newsletter -->
     <section class="newsletter" id="newsletter">
-        <div class="featured-container">
+        <div class="shopping-container">
             <h2>Stay in the Loop</h2>
             <p>Get weekly beauty tips, product recommendations, and lifestyle finds delivered straight to your inbox.</p>
             <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing! Check your email.');">
@@ -460,7 +634,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 BeautyBible. Authenticity over everything. | <a href="#">Privacy</a> • <a href="#">Contact</a> • <a href="#">Shop</a></p>
+        <p>&copy; 2025 BeautyBible. Authenticity over everything. | <a href="https://www.instagram.com/littlebit_0910" target="_blank">Instagram</a> • <a href="https://www.tiktok.com/@littlebit_0910" target="_blank">TikTok</a> • <a href="https://www.pinterest.com/littlebit_0910" target="_blank">Pinterest</a> • <a href="https://www.amazon.com/shop/littlebit_0910" target="_blank">Amazon</a></p>
     </footer>
 </body>
 </html>
